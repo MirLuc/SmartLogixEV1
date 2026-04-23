@@ -77,7 +77,7 @@ Para dar solución al caso, se diseñó una arquitectura distribuida separando l
 
 ### Diagrama de arquitectura de los microservicios
 
-![arquitectura](diagrama1.png)
+![arquitectura](diagrama.png)
 
 ---
 
