@@ -75,6 +75,8 @@ Para dar solución al caso, se diseñó una arquitectura distribuida separando l
 
 ### Diagrama de arquitectura de los microservicios
 
+![arquitectura](diagrama1.png)
+
 ---
 
 ## 3. Justificación de Patrones de Arquitectura
@@ -125,4 +127,4 @@ La propuesta arquitectónica no solo cumple con requerimientos funcionales, sino
 ---
 
 ### Diagrama de arquitectura de la infraestructura
-![Texto alternativo](diagrama1.png)
+![microservicios](diagrama2.png)
