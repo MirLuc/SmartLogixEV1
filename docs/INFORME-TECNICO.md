@@ -129,7 +129,7 @@ La propuesta arquitectónica no solo cumple con requerimientos funcionales, sino
 ---
 
 ### Diagrama de arquitectura de la infraestructura
-![microservicios](diagrama2.png)
+![microservicios](diagrama1.png)
 
 ## 5.Conclusiones
 
