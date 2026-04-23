@@ -1,9 +1,11 @@
 # DUOC UC  
+**Integrantes:** Mirko Lucic / Ashley Vargas
+
 **Asignatura:** Desarrollo Fullstack III – Semestre 01 2026  
 **Profesor:** Anyelo Castellon Rios  
 
 # INFORME DE FULLSTACK III  
-**Caso:** SmartLogix  
+**Caso:** SmartLogix 
 
 ---
 
@@ -58,19 +60,19 @@ Este nuevo backend deberá ser capaz de integrar, de manera totalmente desacopla
 
 Para dar solución al caso, se diseñó una arquitectura distribuida separando las responsabilidades en los siguientes módulos clave:
 
-- **API Gateway (Puerto 8080):**  
+### - **API Gateway (Puerto 8080):**  
   Actúa como punto único de entrada para el frontend o los clientes, enrutando las peticiones al microservicio correspondiente y ocultando la complejidad de la red interna.
 
-- **Discovery Service (Puerto 8761 - Eureka):**  
+### - **Discovery Service (Puerto 8761 - Eureka):**  
   Implementa el patrón *Service Discovery*, permitiendo que los microservicios se registren dinámicamente y se comuniquen entre sí mediante nombres lógicos en lugar de IPs estáticas.
 
-- **Inventory Service (Puerto 8081):**  
+### - **Inventory Service (Puerto 8081):**  
   Gestiona los niveles de stock en tiempo real. Permite consultar disponibilidad, reservar y liberar productos.
 
-- **Order Service (Puerto 8082):**  
+### - **Order Service (Puerto 8082):**  
   Es el orquestador del sistema. Automatiza la validación de pedidos, verificando el stock en el inventario y solicitando el despacho al servicio de envíos de manera síncrona.
 
-- **Shipment Service (Puerto 8083):**  
+### - **Shipment Service (Puerto 8083):**  
   Coordina los envíos, determinando el transportista adecuado y los tiempos de entrega estimados según la zona geográfica del cliente.
 
 ### Diagrama de arquitectura de los microservicios
@@ -128,3 +130,19 @@ La propuesta arquitectónica no solo cumple con requerimientos funcionales, sino
 
 ### Diagrama de arquitectura de la infraestructura
 ![microservicios](diagrama2.png)
+
+## 5.Conclusiones
+
+La arquitectura diseñada para SmartLogix representa una solución moderna y definitiva para los problemas logísticos de las PYMEs, destacando los siguientes logros:
+
+### **-Evolución Tecnológica:** 
+Transición exitosa de un sistema monolítico tradicional a un ecosistema de microservicios altamente escalable y autónomo.
+
+### **-Resiliencia y Desacoplamiento:** 
+Implementación estratégica de patrones de software (Database per Service, Factory Method y Circuit Breaker) que garantizan la independencia de los módulos y previenen fallos en cascada.
+
+### **-Seguridad y Privacidad:** 
+Diseño de una infraestructura de red segmentada mediante VPC y Subredes que protege los datos sensibles de los clientes y blinda los servicios internos.
+
+### **-Proyección a Futuro:** 
+Entrega de una base técnica robusta capaz de automatizar procesos, soportar picos de demanda y asegurar la continuidad operativa del negocio ante cualquier escenario.
