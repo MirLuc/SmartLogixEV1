@@ -1,0 +1,36 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:h2:mem:userdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+security:
+  jwt:
+    secret: smartlogix-dev-secret-key-should-be-32-bytes+
+    issuer: smartlogix-user-service
+    expiration-minutes: 60
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

@@ -23,6 +23,7 @@ Start-SmartLogixService -Module "discovery-service" -Title "Eureka Discovery"
 Start-SmartLogixService -Module "inventory-service" -Title "Inventory Service"
 Start-SmartLogixService -Module "shipment-service" -Title "Shipment Service"
 Start-SmartLogixService -Module "order-service" -Title "Order Service"
+Start-SmartLogixService -Module "user-service" -Title "User Service"
 Start-SmartLogixService -Module "api-gateway" -Title "API Gateway"
 
 Write-Host "Servicios SmartLogix iniciados."
