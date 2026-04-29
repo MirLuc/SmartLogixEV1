@@ -28,11 +28,16 @@ Y componentes de infraestructura:
 - `inventory-service` (puerto `8081`)
 - `order-service` (puerto `8082`)
 - `shipment-service` (puerto `8083`)
+- `user-service` (puerto `8084`)
 
 ## Requisitos
 
 - Java 17
 - Maven Wrapper (`mvnw.cmd` ya incluido)
+
+## Variables de entorno (user-service)
+
+- `SMARTLOGIX_JWT_SECRET`: clave JWT (>= 32 caracteres) usada para firmar tokens.
 
 ## Compilar y validar
 
@@ -152,6 +157,17 @@ curl http://localhost:8080/api/shipments
 - `GET /api/shipments`
 - `GET /api/shipments/{trackingCode}`
 - `PATCH /api/shipments/{trackingCode}/status?value=IN_TRANSIT`
+
+### User Service
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/auth/validate`
+- `POST /api/auth/validate-credentials`
+- `GET /api/users`
+- `POST /api/users`
+- `PATCH /api/users/{id}/roles`
+- `PATCH /api/users/{id}/status?enabled=true`
 
 ## Flujo funcional implementado
 

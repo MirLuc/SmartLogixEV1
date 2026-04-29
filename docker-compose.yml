@@ -25,6 +25,7 @@ services:
     restart: unless-stopped
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka/
+      - SMARTLOGIX_JWT_SECRET=${SMARTLOGIX_JWT_SECRET}
     healthcheck:
       test: ["CMD", "curl", "-fsS", "http://localhost:8081/actuator/health"]
       interval: 15s
@@ -78,6 +79,27 @@ services:
     ports:
       - "8082:8082"
 
+  user-service:
+    build:
+      context: .
+      dockerfile: user-service/Dockerfile
+    image: smartlogix/user-service:latest
+    depends_on:
+      discovery-service:
+        condition: service_healthy
+    restart: unless-stopped
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka/
+      - SMARTLOGIX_JWT_SECRET=${SMARTLOGIX_JWT_SECRET}
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8084/actuator/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 35s
+    ports:
+      - "8084:8084"
+
   api-gateway:
     build:
       context: .
@@ -91,6 +113,8 @@ services:
       order-service:
         condition: service_healthy
       shipment-service:
+        condition: service_healthy
+      user-service:
         condition: service_healthy
     restart: unless-stopped
     environment:
