@@ -28,12 +28,16 @@ public class UserService {
     }
 
     public UserResponse register(RegisterRequest request) {
-        return toResponse(createUserInternal(
+        return toResponse(registerAccount(request));
+    }
+
+    public UserAccount registerAccount(RegisterRequest request) {
+        return createUserInternal(
                 request.username(),
                 request.email(),
                 request.password(),
                 EnumSet.of(Role.USER)
-        ));
+        );
     }
 
     public UserResponse createUser(CreateUserRequest request) {

@@ -11,7 +11,6 @@ import com.smartlogix.user.dto.TokenValidationResponse;
 import com.smartlogix.user.dto.UserResponse;
 import com.smartlogix.user.exception.InvalidCredentialsException;
 import com.smartlogix.user.exception.UserDisabledException;
-import com.smartlogix.user.exception.UserNotFoundException;
 import com.smartlogix.user.repository.UserAccountRepository;
 import java.util.Optional;
 import java.util.Set;
@@ -41,9 +40,8 @@ public class AuthService {
     }
 
     public AuthResponse register(RegisterRequest request) {
-        UserResponse user = userService.register(request);
-        UserAccount account = repository.findByUsernameIgnoreCase(user.username())
-                .orElseThrow(() -> new UserNotFoundException("No existe el usuario " + user.username()));
+        UserAccount account = userService.registerAccount(request);
+        UserResponse user = toResponse(account);
         TokenResponse token = jwtService.generateToken(account);
         return new AuthResponse(user, token);
     }
