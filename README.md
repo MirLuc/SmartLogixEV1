@@ -35,6 +35,10 @@ Y componentes de infraestructura:
 - Java 17
 - Maven Wrapper (`mvnw.cmd` ya incluido)
 
+## Variables de entorno (user-service)
+
+- `SMARTLOGIX_JWT_SECRET`: clave JWT (>= 32 caracteres) usada para firmar tokens.
+
 ## Compilar y validar
 
 ```powershell

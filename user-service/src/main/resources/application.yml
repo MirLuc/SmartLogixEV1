@@ -26,7 +26,7 @@ management:
 
 security:
   jwt:
-    secret: smartlogix-dev-secret-key-should-be-32-bytes+
+    secret: ${SMARTLOGIX_JWT_SECRET}
     issuer: smartlogix-user-service
     expiration-minutes: 60
 
