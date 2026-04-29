@@ -90,6 +90,7 @@ services:
     restart: unless-stopped
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka/
+      - SMARTLOGIX_JWT_SECRET=${SMARTLOGIX_JWT_SECRET}
     healthcheck:
       test: ["CMD", "curl", "-fsS", "http://localhost:8084/actuator/health"]
       interval: 15s
