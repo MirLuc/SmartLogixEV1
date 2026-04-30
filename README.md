@@ -38,7 +38,7 @@ Y componentes de infraestructura:
 ## Variables de entorno (user-service)
 
 - `SMARTLOGIX_JWT_SECRET`: clave JWT (>= 32 caracteres) usada para firmar tokens.
-  - En Docker Compose, si no se define, se usa `smartlogix-dev-secret-please-change` (solo desarrollo).
+  - En Docker Compose, si no se define, se usa `smartlogix-dev-secret-please-change-9f3c7b2a1d4e5f6g` (solo desarrollo). Cambiala antes de cualquier despliegue no local.
 
 ## Compilar y validar
 
