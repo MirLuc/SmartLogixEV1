@@ -7,7 +7,8 @@ RUN sed -i 's/\r$//' mvnw && chmod +x mvnw && ./mvnw -q -DskipTests -pl inventor
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 
-RUN apt-get update \
+RUN sed -i 's|http://|https://|g' /etc/apt/sources.list \
+    && apt-get update \
     && apt-get install -y --no-install-recommends curl \
     && rm -rf /var/lib/apt/lists/*
 
