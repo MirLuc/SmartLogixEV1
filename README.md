@@ -38,6 +38,7 @@ Y componentes de infraestructura:
 ## Variables de entorno (user-service)
 
 - `SMARTLOGIX_JWT_SECRET`: clave JWT (>= 32 caracteres) usada para firmar tokens.
+  - En Docker Compose, si no se define, se usa `smartlogix-dev-secret-please-change` (solo desarrollo).
 
 ## Compilar y validar
 
@@ -59,6 +60,8 @@ Para levantar toda la plataforma con Docker Compose:
 docker compose up --build -d
 docker compose ps
 ```
+
+En Docker Compose, `order-service` se expone en el host como `ORDER_SERVICE_PORT` (por defecto `18082`).
 
 Para detenerla:
 

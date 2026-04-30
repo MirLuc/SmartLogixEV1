@@ -25,7 +25,7 @@ services:
     restart: unless-stopped
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka/
-      - SMARTLOGIX_JWT_SECRET=${SMARTLOGIX_JWT_SECRET}
+      - SMARTLOGIX_JWT_SECRET=${SMARTLOGIX_JWT_SECRET:-smartlogix-dev-secret-please-change}
     healthcheck:
       test: ["CMD", "curl", "-fsS", "http://localhost:8081/actuator/health"]
       interval: 15s
@@ -77,7 +77,7 @@ services:
       retries: 10
       start_period: 40s
     ports:
-      - "8082:8082"
+      - "${ORDER_SERVICE_PORT:-18082}:8082"
 
   user-service:
     build:
@@ -90,7 +90,7 @@ services:
     restart: unless-stopped
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-service:8761/eureka/
-      - SMARTLOGIX_JWT_SECRET=${SMARTLOGIX_JWT_SECRET}
+      - SMARTLOGIX_JWT_SECRET=${SMARTLOGIX_JWT_SECRET:-smartlogix-dev-secret-please-change}
     healthcheck:
       test: ["CMD", "curl", "-fsS", "http://localhost:8084/actuator/health"]
       interval: 15s
